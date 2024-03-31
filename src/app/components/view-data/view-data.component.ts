@@ -59,13 +59,8 @@ setCurrentStyles(){
   gaugeValue = 28.3;
    // aquí se guarda la consulta realizada por la vista sp_view_weatherdata
    weather_dataDB :any;
-
   gaugeLabel = "Speed";
   gaugeAppendText = "km/hr";
-
-
-
-
   gauegeThik:any=14;
   size:any = 400;
   data :any = 15;
@@ -112,7 +107,7 @@ this.o3value = message.ozono;
 dataChartTemperatura = {
   labels: [this.horas],
   datasets: [{
-    label: 'Temperature',
+    
     data: this.temperatura , // [10, 19, 23, 24.5, 22, 17, 11]
     fill:"start",
     borderColor: 'rgb(75, 192, 192)',
@@ -138,7 +133,7 @@ ngOnInit(): void {
         this.pm1DB.push(elemento.pm1_0);
         this.pm_25.push(elemento.pm2_5);
         this.pm_10.push(elemento.pm10);
-        this.horas.push(elemento.hora);
+        this.horas.push(elemento.hora.substring(0,2)); // se utiliza substring para extrar solo la hora de la fecha , 
 
     }
     console.log("estos son los datos de la temperatura",this.temperatura);
@@ -205,7 +200,7 @@ ngOnInit(): void {
         label: 'Temperature',
         data: this.temperatura , // [10, 19, 23, 24.5, 22, 17, 11]
         fill:"start",
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: '#fe6385',
       }]
     },
     options: {
@@ -228,8 +223,13 @@ ngOnInit(): void {
           min: 0,
           max: 50,
           grid: {
-            display: false // Oculta la cuadrícula del eje y
+            display: true // Oculta la cuadrícula del eje y
           }
+        }
+      },
+      plugins:{
+        legend:{
+          display:false,
         }
       },
       backgroundColor:"#fe6385",
