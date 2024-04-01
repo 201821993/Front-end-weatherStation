@@ -1,15 +1,14 @@
-import { Component, OnInit,AfterViewInit} from '@angular/core';
-//
+import { Component } from '@angular/core';
 import { SocketServerService } from 'src/app/services/socket-server.service';
 import { DataFetchManagerService } from 'src/app/services/data-fetch-manager.service';
 import Chart from 'chart.js/auto'
-@Component({
-  selector: 'app-view-data',
-  templateUrl: './view-data.component.html',
-  styleUrls: ['./view-data.component.css']
-})
-export class ViewDataComponent implements OnInit, AfterViewInit{
 
+@Component({
+  selector: 'app-dashboard-view',
+  templateUrl: './dashboard-view.component.html',
+  styleUrls: ['./dashboard-view.component.css']
+})
+export class DashboardViewComponent {
 
     /*
   arreglos que van a almacenar de la consulta a la base de datos diferentes valores coom la temperatura, los contaminantes
@@ -276,4 +275,5 @@ ngAfterViewInit():void {
 
 
 }
+
 }
